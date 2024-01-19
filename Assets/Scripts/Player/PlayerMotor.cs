@@ -7,7 +7,7 @@ public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 playerVelocity;
-    private bool isGrounded;
+    public bool isGrounded;
     public float speed = 5.0f;
     public float gravity = -9.8f;
     public float jumpHeight = 3f;
