@@ -32,7 +32,7 @@ public class PlayerMotor : MonoBehaviour
         moveDirection.x = input.x;
         moveDirection.z = input.y;
         //running
-        if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && UnityEngine.Input.GetKeyDown(KeyCode.W))
+        if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && UnityEngine.Input.GetKey(KeyCode.W))
         {
             controller.Move(transform.TransformDirection(moveDirection) * runSpeed * Time.deltaTime);
 
