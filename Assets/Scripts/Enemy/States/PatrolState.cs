@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PatrolState : BaseState
 {
     public int wayPointIndex;
-    public float waitTimes;
+    public float waitTimer;
     public override void Enter()
     {
     }
     public override void Perform()
     {
         PatrolCycle();
+        if (enemy.CanSeePlayer())
+        {
+            stateMachine.ChangeState(new AttackState());
+        }
     }
     public override void Exit()
     {
@@ -19,10 +24,10 @@ public class PatrolState : BaseState
 
     public void PatrolCycle()
     {
-        waitTimes += Time.deltaTime;
-        if (waitTimes >= 3)
+        waitTimer += Time.deltaTime;
+        if (waitTimer >= 3)
         {
-            waitTimes = 0;
+            waitTimer = 0;
 
             if (enemy.Agent.remainingDistance < 0.2f)
             {
