@@ -22,7 +22,7 @@ public class SearchState : BaseState
         {
             stateMachine.ChangeState(new AttackState());
         }
-        if (enemy.Agent.remainingDistance < enemy.Agent.stoppingDistance)
+        if (enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance)
         {
             searchTimer += Time.deltaTime;
             moveTimer += Time.deltaTime;
