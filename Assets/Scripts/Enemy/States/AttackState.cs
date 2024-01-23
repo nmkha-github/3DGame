@@ -39,7 +39,7 @@ public class AttackState : BaseState
         else
         {
             losePlayerTimer += Time.deltaTime;
-            if (losePlayerTimer > 8)
+            if (losePlayerTimer > 2)
             {
                 //Change to the search state
                 stateMachine.ChangeState(new SearchState());
