@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Gun : MonoBehaviour
 {
-
+    public Transform gunBarrel;
 
     public float damage = 10f;
     public float range = 100f;
@@ -50,6 +50,14 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(fpscamera.transform.position, fpscamera.transform.forward, out hit, range))
         {
             UnityEngine.Debug.Log(hit.transform.name);
+            
+            //instantiate a new bullet
+            GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, gunBarrel.position, gunBarrel.transform.rotation);
+            //add force rigidbody of the bullet
+
+            Vector3 shootDirection = fpscamera.transform.forward.normalized;
+            //add force rigidbody of the bullet
+            bullet.GetComponent<Rigidbody>().velocity =  shootDirection * 40;
 
             //Target target = hit.transform.GetComponent<Target>();
             //if (target != null)
@@ -66,6 +74,18 @@ public class Gun : MonoBehaviour
             //Destroy(impactGO, 2f);
         }
 
+    }
+
+    public void Shoot1()
+    {
+
+        //instantiate a new bullet
+        GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, gunBarrel.position, gunBarrel.transform.rotation);
+        //add force rigidbody of the bullet
+
+        Vector3 shootDirection = gunBarrel.transform.forward.normalized;
+        //add force rigidbody of the bullet
+        bullet.GetComponent<Rigidbody>().velocity =  shootDirection * 40;
     }
 }
 

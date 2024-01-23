@@ -7448,6 +7448,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6482195809108570800, guid: 3a3c0bbe58beeff4a8d63acd5a770137, type: 3}
   m_PrefabInstance: {fileID: 1833904864}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &777808895 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3832703582600944452, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
+  m_PrefabInstance: {fileID: 1473818874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &823760153
 GameObject:
   m_ObjectHideFlags: 0
@@ -8649,6 +8654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0729036f9fea02a42ba9c784559558d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunBarrel: {fileID: 777808895}
   damage: 10
   range: 100
   fireRate: 15
