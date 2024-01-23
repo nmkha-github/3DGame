@@ -7626,6 +7626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 1487322154}
+  crosshair: {fileID: 105275976}
   cam: {fileID: 223800866}
   normalPosition: {x: 0, y: 0, z: 0}
   aimPosition: {x: -0.405, y: 0.18, z: -0.62}
