@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -47,15 +48,16 @@ public class Gun : MonoBehaviour
         muzzleflash.Play();
 
         RaycastHit hit;
-        if (Physics.Raycast(fpscamera.transform.position, fpscamera.transform.forward, out hit, range))
+        if (Physics.Raycast(fpscamera.transform.position + fpscamera.transform.forward.normalized * 3, fpscamera.transform.forward, out hit, range))
         {
             UnityEngine.Debug.Log(hit.transform.name);
-            
+
+
             //instantiate a new bullet
-            GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, gunBarrel.position, gunBarrel.transform.rotation);
+            GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, gunBarrel.position, fpscamera.transform.rotation);
             //add force rigidbody of the bullet
 
-            Vector3 shootDirection = fpscamera.transform.forward.normalized;
+            Vector3 shootDirection = (hit.point - gunBarrel.position).normalized;
             //add force rigidbody of the bullet
             bullet.GetComponent<Rigidbody>().velocity =  shootDirection * 40;
 
@@ -76,16 +78,5 @@ public class Gun : MonoBehaviour
 
     }
 
-    public void Shoot1()
-    {
-
-        //instantiate a new bullet
-        GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, gunBarrel.position, gunBarrel.transform.rotation);
-        //add force rigidbody of the bullet
-
-        Vector3 shootDirection = gunBarrel.transform.forward.normalized;
-        //add force rigidbody of the bullet
-        bullet.GetComponent<Rigidbody>().velocity =  shootDirection * 40;
-    }
 }
 
