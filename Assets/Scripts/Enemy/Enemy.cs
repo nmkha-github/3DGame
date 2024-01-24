@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    public float health = 100;
+
     private StateMachine stateMachine;
     private NavMeshAgent agent;
     private GameObject player;
@@ -66,5 +68,21 @@ public class Enemy : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Instantiate(Resources.Load("Prefabs/Explosion") as GameObject, transform.position, transform.rotation);
+
+        Destroy(gameObject);
     }
 }

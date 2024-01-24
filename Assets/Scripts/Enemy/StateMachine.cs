@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
+    public float speedBullet = 40f;
     public BaseState activeState;
     public PatrolState patrolState;
 

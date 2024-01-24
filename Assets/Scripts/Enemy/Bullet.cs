@@ -10,10 +10,23 @@ public class Bullet : MonoBehaviour
         Transform hitTransform = collision.transform;
         if (hitTransform.CompareTag("Player"))
         {
-            hitTransform.GetComponent<PlayerHealth>().TakeDamage(10);
+            PlayerHealth playerHealth = hitTransform.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+                playerHealth.TakeDamage(10);
         }
 
-        CreateBulletImpactEffect(collision);
+        else if (hitTransform.CompareTag("Enemy"))
+        {
+            Enemy enemy = hitTransform.GetComponent<Enemy>();
+            if (enemy != null)
+                enemy.TakeDamage(10);
+        }
+
+        else
+        {
+            CreateBulletImpactEffect(collision);
+        }
+
         Destroy(gameObject);
     }
 

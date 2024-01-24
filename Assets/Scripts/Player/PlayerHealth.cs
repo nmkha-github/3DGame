@@ -20,6 +20,9 @@ public class PlayerHealth : MonoBehaviour
     public float duration = 2f;
     public float fadeSpeed = 1.5f;
 
+    [Header("Game Over")]
+    public GameObject gameOverPanel;
+
     private float durationTimer;
     // Start is called before the first frame update
     void Start()
@@ -77,11 +80,24 @@ public class PlayerHealth : MonoBehaviour
         lerpTimer = 0f;
         durationTimer = 0f;
         overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1);
+
+        if (health <= 0)
+        {
+            GameOver();
+        }
     }
 
     public void RestoreHealth(float healAmount)
     {
         health += healAmount;
         lerpTimer = 0f;
+    }
+
+    void GameOver()
+    {
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
     }
 }
