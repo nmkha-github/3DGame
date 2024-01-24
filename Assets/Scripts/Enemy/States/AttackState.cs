@@ -29,20 +29,27 @@ public class AttackState : BaseState
             {
                 Shoot();
             }
-            if (moveTimer > Random.Range(3, 7))
+            if (moveTimer > Random.Range(stateMachine.AS_moveTimeMin, stateMachine.AS_moveTimeMax))
             {
-                enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 5));
+                enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * stateMachine.AS_randomMove));
                 moveTimer = 0;
             }
             enemy.LastKnowPos = enemy.Player.transform.position;
         }
-        else
-        {
-            losePlayerTimer += Time.deltaTime;
-            if (losePlayerTimer > 2)
+        else 
+        {   if (stateMachine.SS_searchState)
             {
-                //Change to the search state
-                stateMachine.ChangeState(new SearchState());
+                losePlayerTimer += Time.deltaTime;
+                if (losePlayerTimer > stateMachine.AS_losePlayerTime)
+                {
+                    //Change to the search state
+                    stateMachine.ChangeState(new SearchState());
+                }
+            }
+            else
+            {
+                //Change to the patrol state
+                stateMachine.ChangeState(new PatrolState());
             }
         }
     }
@@ -57,7 +64,7 @@ public class AttackState : BaseState
         //calculate the direction to the player
         Vector3 shootDirection = (enemy.Player.transform.position - gunBarrel.transform.position).normalized;
         //add force rigidbody of the bullet
-        bullet.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(Random.Range(-3f, 3f), Vector3.up) * shootDirection * stateMachine.speedBullet;
+        bullet.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(Random.Range(-stateMachine.AS_differrence, stateMachine.AS_differrence), Vector3.up) * shootDirection * stateMachine.AS_speedBullet;
         shootTimer = 0;
     }
 

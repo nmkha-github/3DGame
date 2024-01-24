@@ -25,7 +25,7 @@ public class PatrolState : BaseState
     public void PatrolCycle()
     {
         waitTimer += Time.deltaTime;
-        if (waitTimer >= 3)
+        if (waitTimer >= stateMachine.PS_waitTime)
         {
             waitTimer = 0;
 

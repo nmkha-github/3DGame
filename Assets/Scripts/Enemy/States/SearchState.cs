@@ -26,12 +26,12 @@ public class SearchState : BaseState
         {
             searchTimer += Time.deltaTime;
             moveTimer += Time.deltaTime;
-            if (moveTimer > Random.Range(3, 5))
+            if (moveTimer > Random.Range(stateMachine.SS_moveTimeMin, stateMachine.SS_moveTimeMax))
             {
-                enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 10));
+                enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * stateMachine.SS_randomMove));
                 moveTimer = 0;
             }
-            if (searchTimer > 10)
+            if (searchTimer > stateMachine.SS_searchTime)
             {
                 stateMachine.ChangeState(new PatrolState());
             }

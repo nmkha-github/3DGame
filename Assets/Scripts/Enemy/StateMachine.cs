@@ -4,9 +4,26 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    public float speedBullet = 40f;
     public BaseState activeState;
+
+    [Header("Patrol State")]
+    public float PS_waitTime = 3f;
     public PatrolState patrolState;
+
+    [Header("Attack State")]
+    public float AS_speedBullet = 40f;
+    public float AS_moveTimeMin = 3f;
+    public float AS_moveTimeMax = 7f;
+    public float AS_losePlayerTime = 2f;
+    public float AS_randomMove = 5f;
+    public float AS_differrence = 3;
+
+    [Header("Search State")]
+    public bool SS_searchState = true;
+    public float SS_searchTime = 10f;
+    public float SS_moveTimeMin = 3f;
+    public float SS_moveTimeMax = 5f;
+    public float SS_randomMove = 10f;
 
     public void Initialise()
     {
