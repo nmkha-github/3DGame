@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float health = 100;
 
     private StateMachine stateMachine;
+    private StateSoldier stateSoldier;
     private NavMeshAgent agent;
     private GameObject player;
     private Vector3 lastKnowPos;
@@ -32,16 +33,29 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         stateMachine = GetComponent<StateMachine>();
+        stateSoldier = GetComponent<StateSoldier>();
         agent = GetComponent<NavMeshAgent>();
-        stateMachine.Initialise();
+
+        if (stateMachine != null)
+        {
+            stateMachine.Initialise();
+        }
+        if (stateSoldier != null)
+        {
+            stateSoldier.Initialise();
+        }
+        
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        CanSeePlayer();
-        currentState = stateMachine.activeState.ToString();
+        //CanSeePlayer();
+        if (stateMachine != null)
+        {
+            currentState = stateMachine.activeState.ToString();
+        }
     }
 
     public bool CanSeePlayer()

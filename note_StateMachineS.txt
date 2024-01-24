@@ -1,0 +1,18 @@
+[Header("Patrol State")] (vòng lập đi tuần)
+public float PS_waitTime = 3f; (thời gian chờ khi tới điểm vòng lập)
+public PatrolState patrolState; (duy chuyển theo vòng lập đặt trước)
+
+[Header("Attack State")] (tấn công)
+public float AS_speedBullet = 40f; (tốc độ đạn)
+public float AS_moveTimeMin = 3f; (thời gian chờ thấp nhất để enemy di chuyển random)
+public float AS_moveTimeMax = 7f; (thời gian chờ tối đa để enemy di chuyển random)
+public float AS_losePlayerTime = 2f; (không nhìn thấy người chơi, thời gian chờ để chuyển sang search state)
+public float AS_randomMove = 5f; (khoảng cách enemy di chuyển random)
+public float AS_differrence = 3; (độ lệch đạn, càng thấp càng chính xát)
+
+[Header("Search State")]
+public bool SS_searchState = true; (nếu để false thì enemy không tìm kiếm người chơi (không theo người chơi))
+public float SS_searchTime = 10f; (thời gian tìm kiếm)
+public float SS_moveTimeMin = 3f; (thời gian chờ thấp nhất để enemy di chuyển random)
+public float SS_moveTimeMax = 5f; (thời gian chờ tối đa để enemy di chuyển random)
+public float SS_randomMove = 10f; (khoảng cách enemy di chuyển random)
