@@ -23,21 +23,15 @@ public class FollowState : BaseState
         {
             enemy.transform.LookAt(enemy.Player.transform);
 
-            enemy.Agent.SetDestination(enemy.Player.transform.position + (enemy.transform.position - enemy.Player.transform.position).normalized * 5);
+            enemy.Agent.SetDestination(enemy.Player.transform.position + (enemy.transform.position - enemy.Player.transform.position).normalized * stateSoldier.distance + (Random.insideUnitSphere * stateSoldier.randomMove));
             if (enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance)
             {
                 attackTimer += Time.deltaTime;
-                if (attackTimer > 3)
+                if (attackTimer > enemy.fireRate)
                 {
                     Attack();
                     attackTimer = 0;
                 }
-            }
-            moveTimer += Time.deltaTime;
-            if (moveTimer > Random.Range(stateSoldier.moveTimeMin, stateSoldier.moveTimeMax))
-            {
-                enemy.Agent.SetDestination(enemy.Player.transform.position);
-                moveTimer = 0;
             }
             sawEnemy = true;
         }
@@ -68,6 +62,15 @@ public class FollowState : BaseState
 
     private void Attack()
     {
-        
+        //store reference to the gun barrel
+        Transform gunBarrel = enemy.gunBarrel;
+
+        //instantiate a new bullet
+        GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, gunBarrel.position, enemy.transform.rotation);
+        //calculate the direction to the player
+        Vector3 shootDirection = (enemy.Player.transform.position - gunBarrel.transform.position).normalized;
+        //add force rigidbody of the bullet
+        bullet.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(Random.Range(-stateSoldier.differrence, stateSoldier.differrence), Vector3.up) * shootDirection * stateSoldier.speedBullet;
+        attackTimer = 0;
     }
 }

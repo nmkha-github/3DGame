@@ -6,9 +6,14 @@ public class StateSoldier : MonoBehaviour
 {
     public BaseState activeState;
 
-    public float moveTimeMin;
-    public float moveTimeMax;
-    public float randomMove;
+    public float moveTimeMin = 2f;
+    public float moveTimeMax = 3f;
+    public float randomMove = 1f;
+    public float distance = 5f;
+
+    [Header("Attack")]
+    public float speedBullet = 20f;
+    public float differrence = 3f;
 
     public void Initialise()
     {

@@ -6822,21 +6822,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 455009168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d37cb1382ce7524099cca235dc3b0df, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cd515f10ca869e40a15fbb6f8665700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PS_waitTime: 3
-  AS_speedBullet: 20
-  AS_moveTimeMin: 2
-  AS_moveTimeMax: 3
-  AS_losePlayerTime: 0
-  AS_randomMove: 0.5
-  AS_differrence: 5
-  SS_searchState: 1
-  SS_searchTime: 10
-  SS_moveTimeMin: 3
-  SS_moveTimeMax: 5
-  SS_randomMove: 10
+  moveTimeMin: 2
+  moveTimeMax: 3
+  randomMove: 1
+  distance: 5
+  speedBullet: 20
+  differrence: 3
 --- !u!1 &474273508
 GameObject:
   m_ObjectHideFlags: 0
@@ -7698,21 +7692,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 610519993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d37cb1382ce7524099cca235dc3b0df, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cd515f10ca869e40a15fbb6f8665700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PS_waitTime: 3
-  AS_speedBullet: 20
-  AS_moveTimeMin: 2
-  AS_moveTimeMax: 3
-  AS_losePlayerTime: 0
-  AS_randomMove: 0.5
-  AS_differrence: 5
-  SS_searchState: 1
-  SS_searchTime: 10
-  SS_moveTimeMin: 3
-  SS_moveTimeMax: 5
-  SS_randomMove: 10
+  moveTimeMin: 2
+  moveTimeMax: 3
+  randomMove: 1
+  distance: 5
+  speedBullet: 20
+  differrence: 3
 --- !u!1 &639399581
 GameObject:
   m_ObjectHideFlags: 0
@@ -10821,21 +10809,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1439091941}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d37cb1382ce7524099cca235dc3b0df, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cd515f10ca869e40a15fbb6f8665700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PS_waitTime: 3
-  AS_speedBullet: 20
-  AS_moveTimeMin: 2
-  AS_moveTimeMax: 3
-  AS_losePlayerTime: 0
-  AS_randomMove: 0.5
-  AS_differrence: 5
-  SS_searchState: 1
-  SS_searchTime: 10
-  SS_moveTimeMin: 3
-  SS_moveTimeMax: 5
-  SS_randomMove: 10
+  moveTimeMin: 2
+  moveTimeMax: 3
+  randomMove: 1
+  distance: 5
+  speedBullet: 20
+  differrence: 3
 --- !u!1 &1457495371
 GameObject:
   m_ObjectHideFlags: 0
