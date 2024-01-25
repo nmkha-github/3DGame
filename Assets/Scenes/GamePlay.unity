@@ -6904,7 +6904,7 @@ MonoBehaviour:
   fielOfView: 180
   eyeHeight: 1.8
   gunBarrel: {fileID: 1029460860}
-  fireRate: 2.58
+  fireRate: 3.78
   currentState: 
 --- !u!195 &455009172
 NavMeshAgent:
@@ -7897,7 +7897,7 @@ MonoBehaviour:
   fielOfView: 180
   eyeHeight: 1.8
   gunBarrel: {fileID: 1885217747}
-  fireRate: 5.1
+  fireRate: 3.42
   currentState: 
 --- !u!195 &610519997
 NavMeshAgent:
@@ -11905,7 +11905,7 @@ MonoBehaviour:
   fielOfView: 180
   eyeHeight: 1.8
   gunBarrel: {fileID: 2086478963}
-  fireRate: 2.74
+  fireRate: 4.15
   currentState: 
 --- !u!195 &1439091945
 NavMeshAgent:

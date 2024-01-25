@@ -24,7 +24,7 @@ public class FollowState : BaseState
             enemy.transform.LookAt(enemy.Player.transform);
 
             enemy.Agent.SetDestination(enemy.Player.transform.position + (enemy.transform.position - enemy.Player.transform.position).normalized * stateSoldier.distance + (Random.insideUnitSphere * stateSoldier.randomMove));
-            if (Vector3.Distance(enemy.transform.position, enemy.Player.transform.position) <= stateSoldier.distance + stateSoldier.randomMove)
+            if (Vector3.Distance(enemy.transform.position, enemy.Player.transform.position) <= stateSoldier.distance + stateSoldier.randomMove + 3f)
             {
                 attackTimer += Time.deltaTime;
                 if (attackTimer > enemy.fireRate)
