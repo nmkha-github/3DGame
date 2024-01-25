@@ -7,10 +7,12 @@ public class UIManager : MonoBehaviour
 {
     public void restartButton()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("GamePlay");
     }
     public void returnButton()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
     }
 }

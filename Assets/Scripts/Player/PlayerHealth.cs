@@ -97,6 +97,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (gameOverPanel != null)
         {
+            Time.timeScale = 0f;
             gameOverPanel.SetActive(true);
         }
     }
