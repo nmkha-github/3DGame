@@ -97,16 +97,16 @@ public class PlayerHealth : MonoBehaviour
 
     void GameOver()
     {
-        if (gameOverPanel != null)
-        {
-            Time.timeScale = 0f;
-            gameOverPanel.SetActive(true);
-        }
-        Instantiate(Resources.Load("Prefabs/Explosion") as GameObject, transform.position, transform.rotation);
+         Time.timeScale = 0.2f;
+        Instantiate(Resources.Load("Prefabs/Explosion") as GameObject, transform.position + transform.forward, transform.rotation);
         player.GetComponent<PlayerMotor>().enabled = false;
         player.GetComponent<PlayerLook>().enabled = false;
         player.GetComponent<PlayerInputManager>().enabled = false;
         Destroy(GameObject.Find("Crosshair"));
         Destroy(gun);
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
     }
 }
