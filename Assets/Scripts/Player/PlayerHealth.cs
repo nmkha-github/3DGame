@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject gun;
     [Header("Health Bar")]
     private float health;
     private float lerpTimer;
@@ -76,12 +78,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        health = Mathf.Max(-1.0f, health - damage);
         lerpTimer = 0f;
         durationTimer = 0f;
         overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1);
 
-        if (health <= 0)
+        if (health == 0)
         {
             GameOver();
         }
@@ -99,5 +101,11 @@ public class PlayerHealth : MonoBehaviour
         {
             gameOverPanel.SetActive(true);
         }
+        Instantiate(Resources.Load("Prefabs/Explosion") as GameObject, transform.position, transform.rotation);
+        player.GetComponent<PlayerMotor>().enabled = false;
+        player.GetComponent<PlayerLook>().enabled = false;
+        player.GetComponent<PlayerInputManager>().enabled = false;
+        Destroy(GameObject.Find("Crosshair"));
+        Destroy(gun);
     }
 }
