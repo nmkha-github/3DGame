@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6356897220772618974}
   - component: {fileID: 2251117261330403962}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e52b1ce06bf866418e2477438cbbe25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  takeDamagePlayer: 1
+  takeDamageEnemy: 0
 --- !u!54 &1434186801050915811
 Rigidbody:
   m_ObjectHideFlags: 0

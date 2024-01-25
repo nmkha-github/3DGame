@@ -5,21 +5,29 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public bool takeDamagePlayer = true;
+    public bool takeDamageEnemy = true;
     private void OnCollisionEnter(Collision collision)
     {
         Transform hitTransform = collision.transform;
         if (hitTransform.CompareTag("Player"))
         {
-            PlayerHealth playerHealth = hitTransform.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-                playerHealth.TakeDamage(10);
+            if (takeDamagePlayer)
+            {
+                PlayerHealth playerHealth = hitTransform.GetComponent<PlayerHealth>();
+                if (playerHealth != null)
+                    playerHealth.TakeDamage(10);
+            }
         }
 
         else if (hitTransform.CompareTag("Enemy"))
         {
-            Enemy enemy = hitTransform.GetComponent<Enemy>();
-            if (enemy != null)
-                enemy.TakeDamage(10);
+            if (takeDamageEnemy)
+            {
+                Enemy enemy = hitTransform.GetComponent<Enemy>();
+                if (enemy != null)
+                    enemy.TakeDamage(10);
+            }
         }
 
         else

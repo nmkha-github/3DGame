@@ -60,7 +60,7 @@ public class AttackState : BaseState
         Transform gunBarrel = enemy.gunBarrel;
 
         //instantiate a new bullet
-        GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, gunBarrel.position, enemy.transform.rotation);
+        GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/EnemyBullet") as GameObject, gunBarrel.position, enemy.transform.rotation);
         //calculate the direction to the player
         Vector3 shootDirection = (enemy.Player.transform.position - gunBarrel.transform.position).normalized;
         //add force rigidbody of the bullet

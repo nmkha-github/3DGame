@@ -54,7 +54,7 @@ public class Gun : MonoBehaviour
 
 
             //instantiate a new bullet
-            GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, gunBarrel.position, fpscamera.transform.rotation);
+            GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/PlayerBullet") as GameObject, gunBarrel.position, fpscamera.transform.rotation);
             //add force rigidbody of the bullet
 
             Vector3 shootDirection = (hit.point - gunBarrel.position).normalized;

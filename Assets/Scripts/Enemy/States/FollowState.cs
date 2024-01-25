@@ -24,7 +24,7 @@ public class FollowState : BaseState
             enemy.transform.LookAt(enemy.Player.transform);
 
             enemy.Agent.SetDestination(enemy.Player.transform.position + (enemy.transform.position - enemy.Player.transform.position).normalized * stateSoldier.distance + (Random.insideUnitSphere * stateSoldier.randomMove));
-            if (enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance)
+            if (Vector3.Distance(enemy.transform.position, enemy.Player.transform.position) <= stateSoldier.distance + stateSoldier.randomMove)
             {
                 attackTimer += Time.deltaTime;
                 if (attackTimer > enemy.fireRate)
@@ -66,7 +66,7 @@ public class FollowState : BaseState
         Transform gunBarrel = enemy.gunBarrel;
 
         //instantiate a new bullet
-        GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/Bullet") as GameObject, gunBarrel.position, enemy.transform.rotation);
+        GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/EnemyBullet") as GameObject, gunBarrel.position, enemy.transform.rotation);
         //calculate the direction to the player
         Vector3 shootDirection = (enemy.Player.transform.position - gunBarrel.transform.position).normalized;
         //add force rigidbody of the bullet
