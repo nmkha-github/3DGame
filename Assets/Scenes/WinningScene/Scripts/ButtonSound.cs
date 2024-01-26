@@ -9,9 +9,9 @@ public class ButtonSound : MonoBehaviour
     public AudioClip clickSound;
 
     private float volume;
-    private void Start()
+    void Update()
     {
-        volume = PlayerPrefs.GetFloat("Volume", volume);
+        volume = PlayerPrefs.GetFloat("Volume", 1f);
     }
     public void Hover()
     {

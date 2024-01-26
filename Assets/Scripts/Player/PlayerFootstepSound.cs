@@ -8,7 +8,7 @@ public class PlayerFootstepSound : MonoBehaviour
     public AudioClip stepAudio;
     public AudioClip runningAudio; 
 
-    private void Start()
+    void Start()
     {
         audioSource.volume = PlayerPrefs.GetFloat("Volume", 1f);
     }

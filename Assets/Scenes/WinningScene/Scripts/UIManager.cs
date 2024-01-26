@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     public float fireworksDelay;
     public AudioClip fireworksAudio;
     float volume;
-    private void Start()
+    void Start()
     {
         volume = PlayerPrefs.GetFloat("Volume", 1f);
         audioSource.PlayOneShot(celebrateAudio, volume);
