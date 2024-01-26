@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,9 @@ public class PlayerHealth : MonoBehaviour
     public Image overlay;
     public float duration = 2f;
     public float fadeSpeed = 1.5f;
+
+    [Header("Pause")]
+    public GameObject PauseGamePanel;
 
     [Header("Game Over")]
     public GameObject gameOverPanel;
@@ -46,6 +50,15 @@ public class PlayerHealth : MonoBehaviour
                 float tempAlpha = overlay.color.a;
                 tempAlpha -= Time.deltaTime * fadeSpeed;
                 overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, tempAlpha);
+            }
+        }
+
+        if (health > 0 && Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (PauseGamePanel != null)
+            {
+                Time.timeScale = 0f;
+                PauseGamePanel.SetActive(true);
             }
         }
     }
@@ -97,7 +110,7 @@ public class PlayerHealth : MonoBehaviour
 
     void GameOver()
     {
-         Time.timeScale = 0.2f;
+        Time.timeScale = 0.2f;
         Instantiate(Resources.Load("Prefabs/Explosion") as GameObject, transform.position + transform.forward, transform.rotation);
         player.GetComponent<PlayerMotor>().enabled = false;
         player.GetComponent<PlayerLook>().enabled = false;
