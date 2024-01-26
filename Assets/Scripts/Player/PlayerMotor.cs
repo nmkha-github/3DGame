@@ -35,7 +35,6 @@ public class PlayerMotor : MonoBehaviour
         if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && UnityEngine.Input.GetKey(KeyCode.W))
         {
             controller.Move(transform.TransformDirection(moveDirection) * runSpeed * Time.deltaTime);
-
         }
         //walking
         else
