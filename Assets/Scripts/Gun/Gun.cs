@@ -75,6 +75,16 @@ public class Gun : MonoBehaviour
             //GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             //Destroy(impactGO, 2f);
         }
+        else
+        {
+            //instantiate a new bullet
+            GameObject bullet = GameObject.Instantiate(Resources.Load("Prefabs/PlayerBullet") as GameObject, gunBarrel.position, fpscamera.transform.rotation);
+            //add force rigidbody of the bullet
+
+            Vector3 shootDirection = transform.forward;
+            //add force rigidbody of the bullet
+            bullet.GetComponent<Rigidbody>().velocity = shootDirection * 40;
+        }
 
     }
 
