@@ -48,7 +48,7 @@ public class Gun : MonoBehaviour
         muzzleflash.Play();
 
         RaycastHit hit;
-        if (Physics.Raycast(fpscamera.transform.position + fpscamera.transform.forward.normalized * 3, fpscamera.transform.forward, out hit, range))
+        if (Input.GetMouseButton(1) == false && Physics.Raycast(fpscamera.transform.position + fpscamera.transform.forward.normalized * 3, fpscamera.transform.forward, out hit, range))
         {
             UnityEngine.Debug.Log(hit.transform.name);
 
